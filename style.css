@@ -1,0 +1,338 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair:ital,opsz,wght@0,5..1200,300..900;1,5..1200,300..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  color: var(--secondary);
+}
+
+:root {
+  --primary: #d9d5b8;
+  --secondary: #023740;
+  --optional: #f0b606;
+  --primaryHover: #c9c5a7;
+  --placeholder: #02374072;
+}
+
+::selection {
+  color: var(--primary);
+  background-color: var(--secondary);
+}
+
+::placeholder {
+  color: var(--placeholder);
+}
+
+body {
+  background: var(--primary);
+}
+
+/* todo : register.php */
+
+#main-title {
+  text-align: center;
+  margin: 30px auto;
+  color: var(--secondary);
+}
+
+#formInput {
+  display: grid;
+  place-self: center;
+  margin-top: 20px;
+  margin-bottom: 50px;
+  gap: 15px;
+  border: 3px solid var(--secondary);
+  color: var(--secondary);
+  border-radius: 1rem;
+  max-width: 500px;
+  padding: 20px 15px;
+  grid-template-areas:
+    "nama nim"
+    "prodi prodi"
+    "divisi divisi"
+    "motto motto"
+    "submit submit";
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  font-size: 1.15rem;
+}
+
+.nama {
+  grid-area: nama;
+  max-width: fit-content;
+}
+
+#nama,
+#nim,
+#prodi,
+#divisi,
+#motto {
+  border: none;
+  outline: none;
+  appearance: none;
+  border-bottom: 3px solid var(--secondary);
+  background: none;
+  padding: 3px 7px 5px;
+  width: 100%;
+  font-size: 1rem;
+  transition: 0.3s;
+}
+
+#nama:focus,
+#nim:focus,
+#motto:focus {
+  background: var(--primaryHover);
+}
+
+.nim {
+  grid-area: nim;
+  max-width: fit-content;
+}
+
+.prodi {
+  grid-area: prodi;
+}
+
+.divisi {
+  grid-area: divisi;
+}
+
+.prodi .select-prodi,
+.divisi .select-divisi {
+  width: 100%;
+  text-align: left;
+  border: none;
+  border-bottom: 2.7px solid var(--secondary);
+  padding: 5px 0 7px 5px;
+  position: relative;
+  font-size: 1rem;
+  outline: none;
+  background: none;
+  transition: 0.3s;
+  display: flex;
+  align-items: center;
+}
+
+.select-prodi:hover,
+.select-divisi:hover {
+  background-color: var(--primaryHover);
+}
+
+.prodi-dipilih,
+.divisi-dipilih {
+  color: var(--placeholder);
+}
+
+.pilihan-mhs {
+  color: var(--secondary);
+}
+
+.list-prodi,
+.list-divisi {
+  display: none;
+  background: var(--primary);
+  border-bottom-left-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
+  list-style: none;
+  border: 2.7px solid var(--secondary);
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: 100%;
+  z-index: 1;
+  transition: 0.3s;
+}
+
+.list-prodi .li-prodi,
+.list-divisi .li-divisi {
+  transition: 0.2s;
+  padding: 5px 7px;
+}
+
+.list-prodi .li-prodi:hover,
+.list-divisi .li-divisi:hover {
+  background: var(--primaryHover);
+}
+
+.dd-show {
+  display: block;
+  opacity: 1;
+}
+
+.down {
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 6px solid var(--secondary);
+  right: 10px;
+  transition: 0.3s;
+  transform: rotate(0deg);
+}
+
+.icon-animated {
+  transform: rotate(180deg);
+}
+
+.motto {
+  grid-area: motto;
+}
+
+textarea {
+  resize: none;
+  font-size: 1rem;
+}
+
+input[type="submit"] {
+  grid-area: submit;
+  display: block;
+  padding: 10px;
+  outline: none;
+  border: 3px solid var(--secondary);
+  border-radius: 0.8rem;
+  background: var(--secondary);
+  color: var(--primary);
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: 0.3s;
+}
+
+input[type="submit"]:hover, button.back:hover {
+  background: var(--primary);
+  color: var(--secondary);
+  transform: translateY(5px);
+}
+
+.error {
+  color: red;
+}
+
+
+
+
+/* todo : hasil.php */
+
+.title-hasil {
+  color: var(--secondary);
+  text-align: center;
+  margin: 20px auto;
+}
+
+.card {
+  display: grid;
+  max-width: 500px;
+  width: 100%;
+  margin: 10px auto;
+  border: 3px solid var(--secondary);
+  padding: 20px;
+  border-radius: 1rem;
+  letter-spacing: 1px;
+  grid-template-areas:
+  'header header'
+  'data data'
+  ;
+}
+
+.card-header {
+  /* background: #000; */
+  /* text-align: center; */
+  grid-area: header;
+  line-height: 2rem;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 50px;
+  border-bottom: 3px solid var(--secondary);
+  text-transform: uppercase;
+}
+
+.card-header h3 {
+  font-size: 2.5rem;
+}
+
+.card-header p {
+  font-size: .9rem;
+}
+
+.card-body {
+  grid-area: data;
+  line-height: 1.7rem;
+  text-transform: capitalize;
+}
+
+.nama-nim {
+  margin-bottom: 25px;
+}
+
+.nama-nim h4 {
+  font-size: 1.45rem;
+  font-weight: 600;
+}
+
+.nama-nim h5 {
+  font-size: .9rem;
+  font-weight: 400;
+}
+
+.divisi-prodi h5 {
+  font-weight: 500;
+}
+
+.divisi-prodi h6 {
+  font-size: 1.4rem;
+  font-weight: 500;
+}
+
+.motto-hasil {
+  width: 500px;
+  text-align: center;
+  color: var(--secondary);
+  line-height: 2rem;
+}
+
+.motto-hasil p:nth-child(1) {
+  font-family: "Playfair", serif !important;
+  font-weight: 600;
+  /* font-style: italic; */
+  font-size: 1.8rem;
+}
+
+.motto-hasil p:nth-child(2) {
+  text-transform: capitalize;
+  font-size: .95rem;
+}
+
+.motto-hasil p:nth-child(1)::first-letter {
+  text-transform: uppercase;
+}
+
+footer {
+  display: flex;
+  height: 200px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+
+button.back {
+  padding: 7px 10px;
+  width: 200px;
+  outline: none;
+  border: 3px solid var(--secondary);
+  border-radius: 0.8rem;
+  background: var(--secondary);
+  color: var(--primary);
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: 0.3s;
+}
