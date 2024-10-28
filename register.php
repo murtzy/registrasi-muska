@@ -28,9 +28,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <style></style>
   </head>
   <body>
+    <div class="container">
+      
     <h1 id="main-title">Registrasi MUSKA</h1>
 
-    <div class="container">
       <form
         id="formInput"
         action="hasil.php"
